@@ -3,9 +3,9 @@ class UserDatabase:
     # Define a list of users that will define the user database
     def __init__(self):
         self.users = []
-
-    # Insert a new user. The newly created user will keep the list of users sorted
+        
     def insert(self, user):
+        """Insert a new user into the UserDatabase, when a new user is created the database will still be sorted"""
         i = 0
         # Iterate through the users
         while i < len(self.users):
@@ -17,22 +17,22 @@ class UserDatabase:
         # Insert the corresponding users number based on number of iterations along with the user itself
         self.users.insert(i, user)
     
-    # Go through each user and if that users username matches up with a query then return that user
     def find(self, username):
+        """Find a specific user based on the username"""
         for user in self.users:
             if user.username == username:
                 return user
     
-    # Updates a user
     def update(self, user):
+        """Update a specific user"""
         # Find the intended user that needs to be updated
         target = self.find(user.username)
 
         # Update the users info
         target.name, target.email = user.name, user.email
     
-    # Returns self.users which is a list containing all users in the UserDatabase class
     def list_all(self):
+        """List all of the users currently in the UserDatabase"""
         pass
         # COMMENTED SO THAT OTHER FUNCTIONS CAN OPERATE without printing a list of users
         # return self.users
@@ -82,29 +82,29 @@ class TreeNode():
     # Initialize left and right subtrees as well as each nodes key
     def __init__(self, key):
         self.key, self.left, self.right = key, None, None
-    
-    # Returns the height of a Binary Tree (longest path from the root node to the farthest bottom node)
+
     def height(self):
+        """Returns the height of a binary tree"""
         if self is None:
             return 0
         return 1 + max(TreeNode.height(self.left), TreeNode.height(self.right))
     
-    # Returns the size of a binary tree (The amount of nodes)
     def size(self):
+        """Returns the size of a binary tree (the amount of nodes"""
         if self is None:
             return 0
         return 1 + TreeNode.size(self.left) + TreeNode.size(self.right)
 
-    # Traverse in order algorithm that counts the amount of nodes in order.
     def traverse_in_order(self):
+        """Counts the amount of nodes in a tree in order"""
         if self is None: 
             return []
         return (TreeNode.traverse_in_order(self.left) + 
                 [self.key] + 
                 TreeNode.traverse_in_order(self.right))
     
-    # Function that displays a binary tree visually
     def display_keys(self, space='\t', level=0):
+        """Displays the TreeNode class visually"""
         # If the node is empty
         if self is None:
             print(space*level + '∅')
@@ -120,8 +120,8 @@ class TreeNode():
         print(space*level + str(self.key))
         self.display_keys(self.left,space, level+1)    
     
-    # Converts a Binary tree into a tuple.
     def to_tuple(self):
+        """Converts a Binary Tree into a tuple"""
         if self is None:
             return None
         if self.left is None and self.right is None:
@@ -136,8 +136,8 @@ class TreeNode():
         return "BinaryTree <{}>".format(self.to_tuple())
     
     @staticmethod
-    # Generates a binary tree based on a tuple given input
     def parse_tuple(data):
+        """Generates a binary tree based on a tuple type input"""
         if data is None:
             node = None
         elif isinstance(data, tuple) and len(data) == 3:
@@ -185,8 +185,8 @@ class BSTNode():
         self.right = None
         self.parent = None
 
-# Function used to display binary trees visually  
 def display_keys(self, space='\t', level=0):
+    """Displays the BSTNode class visually"""
     if self is None:
         print(space*level + '∅')
         return   
