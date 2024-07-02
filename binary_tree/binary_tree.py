@@ -1,5 +1,5 @@
 class UserDatabase:
-    """Class that represetns a user database with functionalitys of adding, searching, updating and listing users"""
+    """Class that represents a user database with functionalitys of adding, searching, updating and listing users"""
     # Define a list of users that will define the user database
     def __init__(self):
         self.users = []
