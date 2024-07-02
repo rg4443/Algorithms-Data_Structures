@@ -1,5 +1,5 @@
-# Simple Linear Search Algorithm that traverses through an array of cards, and returns the index that the target card was in
 def locate_card(cards, target):
+    """Simple Linear Search Algorithm that traverses through an array of cards, and returns the index that a targer card is in"""
     # Start with a position of 0
     idx = 0
     # Iterate through each card
